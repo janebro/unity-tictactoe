@@ -18,10 +18,24 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	public void nextTurn(){
-		if (player == 1) {
-			player = 2;
+		if (!checkVictory()) {
+			if (player == 1) {
+				player = 2;
+			} else {
+				player = 1;
+			}
 		} else {
-			player = 1;
+			Debug.Log("THE PLAYER " + player + " IS VICTORIOUS.");
+		}
+	}
+
+	bool checkVictory(){
+		if (cubes[0].renderer.material.color == cubes [1].renderer.material.color && cubes [0].renderer.material.color == cubes [2].renderer.material.color) {
+			return true;
+		} else if (cubes[3].renderer.material.color == cubes [4].renderer.material.color && cubes [3].renderer.material.color == cubes [5].renderer.material.color){
+			return true;
+		} else {
+			return false;
 		}
 	}
 }
