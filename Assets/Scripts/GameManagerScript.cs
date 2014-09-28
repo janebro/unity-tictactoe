@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class GameManagerScript : MonoBehaviour {
-
-	//Starting with player 1
-	public int player = 1;
+	
+	public int player;
 	public CubeScript[] cubes;
 
 	// Use this for initialization
 	void Start () {
-
+		player = 1;
 	}
 	
 	// Update is called once per frame
@@ -18,24 +17,48 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	public void nextTurn(){
-		if (!checkVictory()) {
-			if (player == 1) {
-				player = 2;
-			} else {
-				player = 1;
-			}
+		if (checkVictory()) {
+			Debug.Log ("THE PLAYER " + player + " IS THE WINNER!");
+			newGame();
+		}
+
+		if (player == 1) {
+			player = 2;
 		} else {
-			Debug.Log("THE PLAYER " + player + " IS VICTORIOUS.");
+			player = 1;
 		}
 	}
 
 	bool checkVictory(){
-		if (cubes[0].renderer.material.color == cubes [1].renderer.material.color && cubes [0].renderer.material.color == cubes [2].renderer.material.color) {
-			return true;
-		} else if (cubes[3].renderer.material.color == cubes [4].renderer.material.color && cubes [3].renderer.material.color == cubes [5].renderer.material.color){
-			return true;
-		} else {
-			return false;
+		bool victory = false;
+
+		if (cubes [0].turn == cubes [1].turn && cubes [0].turn == cubes [2].turn && cubes [0].turn != 0) {
+			victory = true;
+		} else if (cubes [3].turn == cubes [4].turn && cubes [3].turn == cubes [5].turn && cubes [3].turn != 0) {
+			victory = true;
+		} else if (cubes [6].turn == cubes [7].turn && cubes [6].turn == cubes [8].turn && cubes [6].turn != 0) {
+			victory = true;
+		} else if (cubes [0].turn == cubes [3].turn && cubes [0].turn == cubes [6].turn && cubes [0].turn != 0) {
+			victory = true;
+		} else if (cubes [1].turn == cubes [4].turn && cubes [1].turn == cubes [7].turn && cubes [1].turn != 0) {
+			victory = true;
+		} else if (cubes [2].turn == cubes [5].turn && cubes [2].turn == cubes [8].turn && cubes [2].turn != 0) {
+			victory = true;
+		} else if (cubes [6].turn == cubes [4].turn && cubes [6].turn == cubes [2].turn && cubes [6].turn != 0) {
+			victory = true;
+		} else if (cubes [0].turn == cubes [4].turn && cubes [0].turn == cubes [8].turn && cubes [0].turn != 0) {
+			victory = true;
 		}
+
+		return victory;
+	}
+
+	void newGame(){
+		for (int i = 0; i < cubes.Length; i++){
+			cubes[i].turn = 0;
+			cubes[i].renderer.material.color = Color.white;
+		}
+
+		player = 0;
 	}
 }
