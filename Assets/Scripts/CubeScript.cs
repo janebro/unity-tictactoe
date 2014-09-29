@@ -2,15 +2,18 @@
 using System.Collections;
 
 public class CubeScript : MonoBehaviour {
+	
+	private Texture2D circle;
+	private Texture2D cross;
 
-	public Color colorPlayer1 = Color.yellow;
-	public Color colorPlayer2 = Color.black;
 	public GameManagerScript gameManagerScript;
 	public int turn;
 
 	// Use this for initialization
 	void Start () {
 		turn = 0;
+		circle = Resources.Load<Texture2D>("Circle");
+		cross = Resources.Load<Texture2D>("Cross");
 	}
 	
 	// Update is called once per frame
@@ -19,11 +22,10 @@ public class CubeScript : MonoBehaviour {
 	void OnMouseUpAsButton() {
 		if (turn == 0) {
 			if (gameManagerScript.player == 1) {
-				this.renderer.material.color = colorPlayer1;
+				this.renderer.material.mainTexture =  circle;
 				turn = 1;
-				Debug.Log("");
 			} else {
-				this.renderer.material.color = colorPlayer2;
+				this.renderer.material.mainTexture =  cross;
 				turn = 2;
 			}
 			

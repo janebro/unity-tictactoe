@@ -56,7 +56,7 @@ public class GameManagerScript : MonoBehaviour {
 	void newGame(){
 		for (int i = 0; i < cubes.Length; i++){
 			cubes[i].turn = 0;
-			cubes[i].renderer.material.color = Color.white;
+			cubes[i].renderer.material.mainTexture = null;
 		}
 
 		player = 0;
