@@ -12,14 +12,15 @@ public class GameManagerScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update () { }
 
-	public void nextTurn(){
+	public void nextTurn() {
 		if (checkVictory()) {
 			Debug.Log ("THE PLAYER " + player + " IS THE WINNER!");
-			newGame();
+			newGame ();
+		} else if (checkTie()) {
+			Debug.Log ("THE GAME TIED!");
+			newGame ();
 		}
 
 		if (player == 1) {
@@ -29,7 +30,7 @@ public class GameManagerScript : MonoBehaviour {
 		}
 	}
 
-	bool checkVictory(){
+	bool checkVictory() {
 		bool victory = false;
 
 		if (cubes [0].turn == cubes [1].turn && cubes [0].turn == cubes [2].turn && cubes [0].turn != 0) {
@@ -51,6 +52,19 @@ public class GameManagerScript : MonoBehaviour {
 		}
 
 		return victory;
+	}
+
+	bool checkTie() {
+		bool noTurnLeft = true;
+
+		for (int i = 0; i < cubes.Length; i++){
+			if (cubes[i].turn == 0) {
+				noTurnLeft = false;
+				break;
+			}
+		}
+
+		return (!checkVictory() && noTurnLeft ? true : false);
 	}
 
 	void newGame(){
