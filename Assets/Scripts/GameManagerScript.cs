@@ -17,11 +17,13 @@ public class GameManagerScript : MonoBehaviour {
 	public void nextTurn() {
 		if (checkVictory()) {
 			Debug.Log ("THE PLAYER " + player + " IS THE WINNER!");
-			newGame ();
 		} else if (checkTie()) {
 			Debug.Log ("THE GAME TIED!");
-			newGame ();
 		}
+
+        if (checkVictory() || checkTie()) {
+            StartCoroutine(newGame());
+        }
 
 		if (player == 1) {
 			player = 2;
@@ -67,12 +69,15 @@ public class GameManagerScript : MonoBehaviour {
 		return (!checkVictory() && noTurnLeft ? true : false);
 	}
 
-	void newGame(){
+	IEnumerator newGame(){
+        yield return new WaitForSeconds(5);
+
 		for (int i = 0; i < cubes.Length; i++){
 			cubes[i].turn = 0;
 			cubes[i].renderer.material.mainTexture = null;
 		}
 
 		player = 0;
+        Debug.Log("");
 	}
 }
