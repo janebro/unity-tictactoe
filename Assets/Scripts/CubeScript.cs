@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CubeScript : MonoBehaviour {
 	
-	public Texture Player1Tex;
-	public Texture Player2Tex;
+	public Texture player1_texture;
+	public Texture player2_texture;
 	public GameManagerScript gameManagerScript;
 	public int turn;
 
@@ -19,10 +19,10 @@ public class CubeScript : MonoBehaviour {
 	void OnMouseUpAsButton() {
 		if (turn == 0) {
 			if (gameManagerScript.player == 1) {
-				this.renderer.material.mainTexture = Player1Tex;
+                this.renderer.material.mainTexture = player1_texture;
 				turn = 1;
 			} else {
-				this.renderer.material.mainTexture = Player2Tex;
+                this.renderer.material.mainTexture = player2_texture;
 				turn = 2;
 			}
 			
