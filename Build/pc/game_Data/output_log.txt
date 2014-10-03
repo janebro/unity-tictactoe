@@ -1,0 +1,42 @@
+Initialize engine version: 4.6.0b17 (2d43734a3870)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.0]
+    Renderer: Intel(R) HD Graphics (ID=0x46)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.085 seconds
+desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Profiler is only supported with Pro License
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/Runtime/Profiler/ProfilerConnection.cpp Line: 218)
+
+THE PLAYER 1 IS THE WINNER!
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+GameManagerScript:nextTurn() (at C:\Users\Ernesto Janebro\workspace\TicTacToe\Assets\Scripts\GameManagerScript.cs:19)
+CubeScript:OnMouseUpAsButton() (at C:\Users\Ernesto Janebro\workspace\TicTacToe\Assets\Scripts\CubeScript.cs:29)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UnityEngine.HitInfo:SendMessage(String) (at C:\BuildAgent\work\d63dfc6385190b60\Runtime\Export\MouseEvents.cs:17)
+UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo) (at C:\BuildAgent\work\d63dfc6385190b60\Runtime\Export\MouseEvents.cs:168)
+UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32) (at C:\BuildAgent\work\d63dfc6385190b60\Runtime\Export\MouseEvents.cs:141)
+ 
+(Filename: C Line: 0)
+
+
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+<newGame>c__Iterator0:MoveNext() (at C:\Users\Ernesto Janebro\workspace\TicTacToe\Assets\Scripts\GameManagerScript.cs:127)
+ 
+(Filename: C Line: 0)
+
+Waiting for finish
