@@ -11,6 +11,7 @@ public class CubeScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		turn = 0;
+        animation.wrapMode = WrapMode.ClampForever;
 	}
 	
 	// Update is called once per frame
@@ -19,14 +20,21 @@ public class CubeScript : MonoBehaviour {
 	void OnMouseUpAsButton() {
 		if (turn == 0) {
 			if (gameManagerScript.player == 1) {
-                this.renderer.material.mainTexture = player1_texture;
 				turn = 1;
 			} else {
-                this.renderer.material.mainTexture = player2_texture;
 				turn = 2;
 			}
 			
+            animation.CrossFade("cube_rotation");
 			gameManagerScript.nextTurn();
 		}
 	}
+
+    void SetCubeTexture() {
+        if (gameManagerScript.player == 1) {
+            this.renderer.material.mainTexture = player1_texture;
+        } else {
+            this.renderer.material.mainTexture = player2_texture;
+        }
+    }
 }
