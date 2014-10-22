@@ -121,6 +121,7 @@ public class GameManagerScript : MonoBehaviour {
 			cubes[i].turn = 0;
 			cubes[i].renderer.material.mainTexture = null;
             cubes[i].renderer.material.color = Color.white;
+            cubes[i].animation.Stop();
 		}
 
 		player = 0;
