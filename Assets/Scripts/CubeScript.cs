@@ -5,6 +5,7 @@ public class CubeScript : MonoBehaviour {
 	
 	public Texture player1_texture;
 	public Texture player2_texture;
+    public Texture init_texture;
 	public GameManagerScript gameManagerScript;
 	public int turn;
 
@@ -12,10 +13,8 @@ public class CubeScript : MonoBehaviour {
 	void Start () {
 		turn = 0;
         animation.wrapMode = WrapMode.ClampForever;
+        this.renderer.material.mainTexture = init_texture;
 	}
-	
-	// Update is called once per frame
-	void Update () { }
 	
 	void OnMouseUpAsButton() {
 		if (turn == 0) {

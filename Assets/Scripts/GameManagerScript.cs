@@ -8,7 +8,7 @@ public class GameManagerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = 1;
+		reset();
 	}
 	
 	// Update is called once per frame
@@ -32,7 +32,7 @@ public class GameManagerScript : MonoBehaviour {
 		}
 	}
 
-	bool checkVictory() {
+	private bool checkVictory() {
 		bool victory = false;
 
 		if (cubes [0].turn == cubes [1].turn && cubes [0].turn == cubes [2].turn && cubes [0].turn != 0) {
@@ -101,7 +101,7 @@ public class GameManagerScript : MonoBehaviour {
 		return victory;
 	}
 
-	bool checkTie() {
+	private bool checkTie() {
 		bool noTurnLeft = true;
 
 		for (int i = 0; i < cubes.Length; i++){
@@ -117,14 +117,18 @@ public class GameManagerScript : MonoBehaviour {
 	IEnumerator newGame(){
         yield return new WaitForSeconds(3);
 
-		for (int i = 0; i < cubes.Length; i++){
-			cubes[i].turn = 0;
-			cubes[i].renderer.material.mainTexture = null;
+        reset();
+	}
+
+    private void reset()
+    {
+        for (int i = 0; i < cubes.Length; i++)
+        {
+            cubes[i].turn = 0;
             cubes[i].renderer.material.color = Color.white;
             cubes[i].animation.Stop();
-		}
-
-		player = 0;
+        }
         Debug.Log("");
-	}
+        player = 1;
+    }
 }
