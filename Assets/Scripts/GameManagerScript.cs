@@ -32,7 +32,7 @@ public class GameManagerScript : MonoBehaviour {
 		}
 	}
 
-	private bool checkVictory() {
+	public bool checkVictory() {
 		bool victory = false;
 
 		if (cubes [0].turn == cubes [1].turn && cubes [0].turn == cubes [2].turn && cubes [0].turn != 0) {
@@ -101,7 +101,7 @@ public class GameManagerScript : MonoBehaviour {
 		return victory;
 	}
 
-	private bool checkTie() {
+	public bool checkTie() {
 		bool noTurnLeft = true;
 
 		for (int i = 0; i < cubes.Length; i++){
@@ -116,7 +116,6 @@ public class GameManagerScript : MonoBehaviour {
 
 	IEnumerator newGame(){
         yield return new WaitForSeconds(3);
-
         reset();
 	}
 
@@ -126,6 +125,7 @@ public class GameManagerScript : MonoBehaviour {
         {
             cubes[i].turn = 0;
             cubes[i].renderer.material.color = Color.white;
+            cubes[i].resetCubeTexture();
             cubes[i].animation.Stop();
         }
         Debug.Log("");

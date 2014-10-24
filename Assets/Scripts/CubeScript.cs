@@ -13,7 +13,7 @@ public class CubeScript : MonoBehaviour {
 	void Start () {
 		turn = 0;
         animation.wrapMode = WrapMode.ClampForever;
-        this.renderer.material.mainTexture = init_texture;
+        resetCubeTexture();
 	}
 	
 	void OnMouseUpAsButton() {
@@ -29,11 +29,15 @@ public class CubeScript : MonoBehaviour {
 		}
 	}
 
-    void SetCubeTexture() {
+    public void SetCubeTexture() {
         if (gameManagerScript.player == 1) {
             this.renderer.material.mainTexture = player1_texture;
         } else {
             this.renderer.material.mainTexture = player2_texture;
         }
+    }
+
+    public void resetCubeTexture() {
+        this.renderer.material.mainTexture = init_texture;
     }
 }
