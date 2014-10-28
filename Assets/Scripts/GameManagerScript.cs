@@ -5,6 +5,7 @@ public class GameManagerScript : MonoBehaviour {
 	
 	public int player;
 	public CubeScript[] cubes;
+    private string displayText;
 
 	// Use this for initialization
 	void Start () {
@@ -14,11 +15,15 @@ public class GameManagerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () { }
 
+    void OnGUI() {
+        GUI.Label(new Rect(10, 10, 200, 50), displayText);
+    }
+
 	public void nextTurn() {
 		if (checkVictory()) {
-			Debug.Log ("THE PLAYER " + player + " IS THE WINNER!");
+			displayText = "PLAYER " + player + " WINS!";
 		} else if (checkTie()) {
-			Debug.Log ("THE GAME TIED!");
+			displayText = "THE GAME TIED!";
 		}
 
         if (checkVictory() || checkTie()) {
@@ -128,7 +133,7 @@ public class GameManagerScript : MonoBehaviour {
             cubes[i].resetCubeTexture();
             cubes[i].animation.Stop();
         }
-        Debug.Log("");
+        displayText = "";
         player = 1;
     }
 }
