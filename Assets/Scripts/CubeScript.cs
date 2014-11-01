@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CubeScript : MonoBehaviour {
-	
+
 	public Texture player1_texture;
 	public Texture player2_texture;
     public Texture init_texture;
@@ -15,19 +15,23 @@ public class CubeScript : MonoBehaviour {
         animation.wrapMode = WrapMode.ClampForever;
         resetCubeTexture();
 	}
-	
-	void OnMouseUpAsButton() {
-		if (turn == 0) {
-			if (gameManagerScript.player == 1) {
-				turn = 1;
-			} else {
-				turn = 2;
-			}
-			
-            animation.CrossFade("cube_rotation");
-			gameManagerScript.nextTurn();
-		}
+
+#if UNITY_STANDALONE_WIN
+    void OnMouseUpAsButton() {
+        inputAction();
 	}
+#endif
+
+#if UNITY_ANDROID
+    void Update() {
+        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit) && hit.collider == this.collider) {
+            inputAction();
+        }
+    }
+#endif
 
     public void SetCubeTexture() {
         if (gameManagerScript.player == 1) {
@@ -39,5 +43,23 @@ public class CubeScript : MonoBehaviour {
 
     public void resetCubeTexture() {
         this.renderer.material.mainTexture = init_texture;
+    }
+
+    private void inputAction()
+    {
+        if (turn == 0)
+        {
+            if (gameManagerScript.player == 1)
+            {
+                turn = 1;
+            }
+            else
+            {
+                turn = 2;
+            }
+
+            animation.CrossFade("cube_rotation");
+            gameManagerScript.nextTurn();
+        }
     }
 }
