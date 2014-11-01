@@ -8,10 +8,18 @@ public class GameManagerScript : MonoBehaviour {
     private string displayText;
 
 	// Use this for initialization
-	void Start () 
+	void Start() 
 	{
 		reset();
 	}
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 
     void OnGUI() 
 	{
@@ -145,6 +153,8 @@ public class GameManagerScript : MonoBehaviour {
             cubes[i].resetCubeTexture();
             cubes[i].animation.Stop();
         }
+
+        audio.Play();
         displayText = "";
         player = 1;
     }

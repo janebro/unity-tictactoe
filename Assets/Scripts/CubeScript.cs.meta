@@ -2,7 +2,12 @@ fileFormatVersion: 2
 guid: a6779ad882c0f5a43906ca4a886352d0
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player1_texture: {instanceID: 0}
+  - player2_texture: {instanceID: 0}
+  - init_texture: {instanceID: 0}
+  - gameManagerScript: {instanceID: 0}
+  - turnSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

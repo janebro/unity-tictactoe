@@ -10,38 +10,47 @@ public class CubeScript : MonoBehaviour {
 	public int turn;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
 		turn = 0;
         animation.wrapMode = WrapMode.ClampForever;
         resetCubeTexture();
 	}
 
 #if UNITY_STANDALONE_WIN
-    void OnMouseUpAsButton() {
+    void OnMouseUpAsButton() 
+    {
         inputAction();
 	}
 #endif
 
-#if UNITY_ANDROID
-    void Update() {
+#if UNITY_ANDROID || UNITY_IPHONE
+    void Update() 
+    {
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit) && hit.collider == this.collider) {
+        if (Physics.Raycast(ray, out hit) && hit.collider == this.collider) 
+        {
             inputAction();
         }
     }
 #endif
 
-    public void SetCubeTexture() {
-        if (gameManagerScript.player == 1) {
+    public void SetCubeTexture() 
+    {
+        if (gameManagerScript.player == 1) 
+        {
             this.renderer.material.mainTexture = player1_texture;
-        } else {
+        } 
+        else 
+        {
             this.renderer.material.mainTexture = player2_texture;
         }
     }
 
-    public void resetCubeTexture() {
+    public void resetCubeTexture() 
+    {
         this.renderer.material.mainTexture = init_texture;
     }
 
@@ -58,6 +67,7 @@ public class CubeScript : MonoBehaviour {
                 turn = 2;
             }
 
+            audio.Play();
             animation.CrossFade("cube_rotation");
             gameManagerScript.nextTurn();
         }
