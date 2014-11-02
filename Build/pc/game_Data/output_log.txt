@@ -12,7 +12,8 @@ Platform assembly: C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Da
 Loading C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.094 seconds
+- Completed reload, in  0.080 seconds
 desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+Platform assembly: C:\Users\Ernesto Janebro\workspace\TicTacToe\Build\pc\game_Data\Managed\System.dll (this message is harmless)

@@ -1,0 +1,25 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class MenuScript : MonoBehaviour {
+
+#if UNITY_STANDALONE_WIN
+    void OnClick()
+    {
+        Application.LoadLevel("game");
+    }
+#endif
+
+#if UNITY_ANDROID
+    void Update()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit) && hit.collider == this.gameObject.collider)
+        {
+            Application.LoadLevel("game");
+        }
+    }
+#endif
+}
