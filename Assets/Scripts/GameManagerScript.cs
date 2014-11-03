@@ -5,11 +5,18 @@ public class GameManagerScript : MonoBehaviour {
 	
 	public int player;
 	public CubeScript[] cubes;
-    private string displayText;
+    public UILabel p1Score;
+    public UILabel p2Score;
+
+    private int p1Count;
+    private int p2Count;
 
 	// Use this for initialization
 	void Start() 
 	{
+        p1Count = 0;
+        p2Count = 0;
+
 		reset();
 	}
 
@@ -21,20 +28,24 @@ public class GameManagerScript : MonoBehaviour {
         }
     }
 
-    void OnGUI() 
-	{
-        GUI.Label(new Rect(10, 10, 200, 50), displayText);
-    }
-
 	public void nextTurn() 
 	{
 		if (checkVictory()) 
 		{
-			displayText = "PLAYER " + player + " WINS!";
+            if (player == 1)
+            {
+                p1Count++;
+                p1Score.text = p1Count.ToString();
+            }
+            else
+            {
+                p2Count++;
+                p2Score.text = p2Count.ToString();
+            }
 		} 
 		else if (checkTie()) 
 		{
-			displayText = "THE GAME TIED!";
+            Debug.Log("TIED.");
 		}
 
         if (checkVictory() || checkTie()) 
@@ -155,7 +166,6 @@ public class GameManagerScript : MonoBehaviour {
         }
 
         audio.Play();
-        displayText = "";
         player = 1;
     }
 }
