@@ -10,15 +10,18 @@ public class MenuScript : MonoBehaviour {
     }
 #endif
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID || UNITY_IPHONE
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit) && hit.collider == this.gameObject.collider)
+        if (Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            Application.LoadLevel("game");
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit) && hit.collider == this.gameObject.collider)
+            {
+                Application.LoadLevel("game");
+            }
         }
     }
 #endif

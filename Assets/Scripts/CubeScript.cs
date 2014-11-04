@@ -3,10 +3,10 @@ using System.Collections;
 
 public class CubeScript : MonoBehaviour {
 
+    public GameManagerScript gameManagerScript;
 	public Texture player1_texture;
 	public Texture player2_texture;
     public Texture init_texture;
-	public GameManagerScript gameManagerScript;
 	public int turn;
 
 	// Use this for initialization
@@ -27,12 +27,15 @@ public class CubeScript : MonoBehaviour {
 #if UNITY_ANDROID || UNITY_IPHONE
     void Update() 
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit) && hit.collider == this.collider) 
+        if (Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            inputAction();
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit) && hit.collider == this.collider)
+            {
+                inputAction();
+            }
         }
     }
 #endif
