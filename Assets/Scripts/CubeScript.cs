@@ -13,7 +13,7 @@ public class CubeScript : MonoBehaviour {
 	void Start () 
     {
 		turn = 0;
-        animation.wrapMode = WrapMode.ClampForever;
+        GetComponent<Animation>().wrapMode = WrapMode.ClampForever;
         resetCubeTexture();
 	}
 
@@ -32,7 +32,7 @@ public class CubeScript : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.collider == this.collider)
+            if (Physics.Raycast(ray, out hit) && hit.collider == this.GetComponent<Collider>())
             {
                 inputAction();
             }
@@ -44,17 +44,17 @@ public class CubeScript : MonoBehaviour {
     {
         if (gameManagerScript.player == 1) 
         {
-            this.renderer.material.mainTexture = player1_texture;
+            this.GetComponent<Renderer>().material.mainTexture = player1_texture;
         } 
         else 
         {
-            this.renderer.material.mainTexture = player2_texture;
+            this.GetComponent<Renderer>().material.mainTexture = player2_texture;
         }
     }
 
     public void resetCubeTexture() 
     {
-        this.renderer.material.mainTexture = init_texture;
+        this.GetComponent<Renderer>().material.mainTexture = init_texture;
     }
 
     private void inputAction()
@@ -70,8 +70,8 @@ public class CubeScript : MonoBehaviour {
                 turn = 2;
             }
 
-            audio.Play();
-            animation.CrossFade("cube_rotation");
+            GetComponent<AudioSource>().Play();
+            GetComponent<Animation>().CrossFade("cube_rotation");
             gameManagerScript.nextTurn();
         }
     }

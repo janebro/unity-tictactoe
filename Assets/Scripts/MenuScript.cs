@@ -18,7 +18,7 @@ public class MenuScript : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.collider == this.gameObject.collider)
+            if (Physics.Raycast(ray, out hit) && hit.collider == this.gameObject.GetComponent<Collider>())
             {
                 Application.LoadLevel("game");
             }
