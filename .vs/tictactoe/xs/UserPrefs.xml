@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{119DDC31-54D8-B282-0ABE-F2051576B58D}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManagerScript.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameManagerScript.cs" Line="4" Column="14" />
+      <File FileName="Assets/Scripts/CubeScript.cs" Line="6" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="tictactoe" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="GameManagerScript.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="71eafe83-1e18-40b9-a21e-aacc3ec069c1" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -5,8 +5,6 @@ public class GameManagerScript : MonoBehaviour {
 	
 	public int player;
 	public CubeScript[] cubes;
-    public UILabel p1Score;
-    public UILabel p2Score;
 
     private int p1Count;
     private int p2Count;
@@ -35,12 +33,10 @@ public class GameManagerScript : MonoBehaviour {
             if (player == 1)
             {
                 p1Count++;
-                p1Score.text = p1Count.ToString();
             }
             else
             {
                 p2Count++;
-                p2Score.text = p2Count.ToString();
             }
 		} 
 		else if (checkTie()) 

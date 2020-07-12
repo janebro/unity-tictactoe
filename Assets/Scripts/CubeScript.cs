@@ -17,7 +17,7 @@ public class CubeScript : MonoBehaviour {
         resetCubeTexture();
 	}
 
-#if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_OSX
     void OnMouseUpAsButton() 
     {
         inputAction();
